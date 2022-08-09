@@ -1,0 +1,120 @@
+{
+  "Post": {
+    "imageUrl": {"string": [
+      "https://st2.depositphotos.com/3591429/5247/i/950/depositphotos_52470577-stock-photo-red-car-on-white-background.jpg",
+"https://st3.depositphotos.com/24436428/32632/i/1600/depositphotos_326325420-stock-photo-rendering-brand-less-generic-concept.jpg",
+"https://st2.depositphotos.com/3591429/8106/i/950/depositphotos_81067810-stock-photo-design-elegance-automobile.jpg",
+"https://st2.depositphotos.com/3037725/44726/i/1600/depositphotos_447262340-stock-photo-blue-small-family-car-hatchback.jpg",
+"https://st4.depositphotos.com/24436428/31018/i/1600/depositphotos_310188598-stock-photo-rendering-brand-less-generic-concept.jpg",
+"https://st3.depositphotos.com/1063296/19248/i/1600/depositphotos_192482488-stock-photo-awesome-modern-white-suv-beauty.jpg",
+"https://st4.depositphotos.com/17115716/20601/i/1600/depositphotos_206010682-stock-photo-modern-car-crossover-business-trips.jpg",
+"https://st2.depositphotos.com/3591429/8023/i/950/depositphotos_80231754-stock-photo-design-elegance-automobile.jpg",
+"https://st2.depositphotos.com/3591429/8326/i/950/depositphotos_83265228-stock-photo-brandless-car-vehicle-concept.jpg",
+"https://st2.depositphotos.com/3591429/8171/i/950/depositphotos_81718180-stock-photo-design-elegance-automobile.jpg",
+"https://st2.depositphotos.com/3591429/9752/i/950/depositphotos_97526800-stock-photo-modern-car-illustration.jpg"
+    ]},
+    "author": {
+      "belongsTo": "User"
+    },
+    "details": {
+      "loremSentences": {
+        "minLength": 100,
+        "maxLength": 200
+      }
+    },
+    "vehicle": {
+      "belongsTo": "Vehicle"
+    },
+    "price": {
+      "int": {
+        "min": 29000,
+        "max": 159000
+      }
+    },
+    "likes": {
+      "int": {
+        "min": 0,
+        "max": 30
+      }
+    },
+    "comments": {
+      "hasMany": "Comment"
+    }
+  },
+  "Vehicle": {
+    "brand": {"string": [
+      "Audi",
+      "BMW",
+      "BYD",
+      "Caoa ",
+      "Chery",
+      "Chevrolet",
+      "Citroën",
+      "Ferrari",
+      "Fiat",
+      "Ford",
+      "Honda",
+      "Hyundai",
+      "Jaguar",
+      "Jeep",
+      "Lamborghini",
+      "Land ",
+      "Rover",
+      "Lexus",
+      "Mercedes",
+      "Benz",
+      "Mitsubishi",
+      "Nissan",
+      "Peugeot",
+      "Porsche",
+      "Renault",
+      "Toyota",
+      "Troller",
+      "Volkswagen",
+      "Volvo"
+    ]},
+    "model": {
+      "loremWord": {}
+    },
+    "year": {
+      "int": {
+        "min": 2000,
+        "max": 2022
+      }
+    },
+    "automatic": {
+      "boolean": {}
+    }
+  },
+  "Comment": {
+    "author": {
+      "belongsTo": "User"
+    },
+    "authorPost": {
+      "belongsTo": "Post"
+    },
+    "text": {
+      "loremParagraphs": {
+        "minLength": 15,
+        "maxLength": 100
+      }
+    }
+  },
+  "User": {
+    "userName": {
+      "regexp": "[A-Z][a-z]{5,10}"
+    },
+    "name": {
+      "string": {}
+    },
+    "avatarUrl": {
+      "regexp": "https://i\\.pravatar\\.cc/150\\?u=[0-9]{5}"
+    },
+    "email": {
+      "regexp": "#[a-z]{5,10}@[a-z]{5}\\.[a-z]{2,3}"
+    },
+    "posts": {
+      "hasMany": "Post"
+    }
+  }
+}
