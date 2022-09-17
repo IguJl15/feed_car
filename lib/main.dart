@@ -1,6 +1,5 @@
 import 'package:fedd_car/pages/feed/ui/feed_page.dart';
 import 'package:flutter/material.dart';
-import 'package:graphql_flutter/graphql_flutter.dart';
 
 void main() {
   runApp(MyApp());

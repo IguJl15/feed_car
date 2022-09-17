@@ -33,9 +33,6 @@ dependencies:
     sdk: flutter
 
   graphql_flutter: ^5.1.0
-  built_value: ^8.4.0
-  flutter_bloc: ^8.0.1
-  rxdart: ^0.27.5
 
 dev_dependencies:
   flutter_test:

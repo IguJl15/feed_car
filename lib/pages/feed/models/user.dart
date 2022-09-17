@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
+import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 
 import 'post.dart';
@@ -12,6 +13,7 @@ class User {
   final int id;
   final String name;
   final String userName;
+  final DateTime createdAt;
   User({
     required this.posts,
     required this.avatarUrl,
@@ -19,6 +21,7 @@ class User {
     required this.id,
     required this.name,
     required this.userName,
+    required this.createdAt,
   });
 
 
@@ -29,6 +32,7 @@ class User {
     int? id,
     String? name,
     String? userName,
+    DateTime? createdAt,
   }) {
     return User(
       posts: posts ?? this.posts,
@@ -37,6 +41,7 @@ class User {
       id: id ?? this.id,
       name: name ?? this.name,
       userName: userName ?? this.userName,
+      createdAt: createdAt ?? this.createdAt,
     );
   }
 
@@ -48,6 +53,7 @@ class User {
       'id': id,
       'name': name,
       'userName': userName,
+      'createdAt': createdAt.millisecondsSinceEpoch,
     };
   }
 
@@ -59,6 +65,7 @@ class User {
       id: map['id'] as int,
       name: map['name'] as String,
       userName: map['userName'] as String,
+      createdAt: DateTime.fromMillisecondsSinceEpoch(map['createdAt'] as int),
     );
   }
 
@@ -68,12 +75,13 @@ class User {
 
   @override
   String toString() {
-    return 'User(posts: $posts, avatarUrl: $avatarUrl, email: $email, id: $id, name: $name, userName: $userName)';
+    return 'User(posts: $posts, avatarUrl: $avatarUrl, email: $email, id: $id, name: $name, userName: $userName, createdAt: $createdAt)';
   }
 
   @override
   bool operator ==(covariant User other) {
     if (identical(this, other)) return true;
+    final listEquals = const DeepCollectionEquality().equals;
   
     return 
       listEquals(other.posts, posts) &&
@@ -81,7 +89,8 @@ class User {
       other.email == email &&
       other.id == id &&
       other.name == name &&
-      other.userName == userName;
+      other.userName == userName &&
+      other.createdAt == createdAt;
   }
 
   @override
@@ -91,6 +100,7 @@ class User {
       email.hashCode ^
       id.hashCode ^
       name.hashCode ^
-      userName.hashCode;
+      userName.hashCode ^
+      createdAt.hashCode;
   }
 }

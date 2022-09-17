@@ -13,7 +13,7 @@ class GraphQLService {
     String query,
   ) async {
     
-    final options = QueryOptions(document: gql(query));
+    final options = QueryOptions(document: gql(query), );
     final result = await client.query(options);
 
     return result;
@@ -21,8 +21,8 @@ class GraphQLService {
 
   Future<QueryResult> executeMutation(String query,
       ) async {
+        
     MutationOptions options = MutationOptions(document: gql(query));
-
     final result = await client.mutate(options);
 
     if (kDebugMode) {

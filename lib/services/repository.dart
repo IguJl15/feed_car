@@ -1,5 +1,4 @@
 import 'package:fedd_car/pages/feed/models/post.dart';
-import 'package:fedd_car/pages/feed/models/post_data.dart';
 import 'package:fedd_car/services/graphql/graphql_service.dart';
 import 'package:fedd_car/services/graphql/queries.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
@@ -13,7 +12,7 @@ class Repository {
 
     if (!result.hasException && result.data != null) {
       final data = result.data!;
-      // print(data);
+
       print("---");
       for (var element in data["posts"] as List) {
         print(element);

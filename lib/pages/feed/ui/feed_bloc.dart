@@ -1,17 +1,11 @@
 import 'dart:async';
 
 import 'package:fedd_car/pages/feed/models/post.dart';
-import 'package:fedd_car/pages/feed/models/post_data.dart';
-import 'package:fedd_car/services/graphql/graphql_service.dart';
 import 'package:fedd_car/services/repository.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graphql_flutter/graphql_flutter.dart';
 
 class FeedBloc {
   Repository repo;
   FeedBloc(this.repo);
-
-  var postdata;
 
   final _streamController = StreamController<List<Post>>.broadcast();
   Sink<List<Post>> get postsData => _streamController.sink;
